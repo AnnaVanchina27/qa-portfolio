@@ -1,0 +1,660 @@
+{
+  "info": {
+    "_postman_id": "a22f4d47-21c0-4ff0-b69a-17bff83e2664",
+    "name": "Samokat",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52389859",
+    "_collection_link": "https://go.postman.co/collection/52389859-a22f4d47-21c0-4ff0-b69a-17bff83e2664?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Naruto\",\r\n    \"lastName\": \"Uchiha\",\r\n    \"address\": \"Konoha, 142 apt.\",\r\n    \"metroStation\": 4,\r\n    \"phone\": \"+380035530500000000000000000000000000000000000000000000000000000000000003536788\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2020-06-19\",\r\n    \"comment\": \"Saske, come back to Konoha\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://7f967a57-be22-4bce-b47e-1b484a1bbbf0.serverhub.praktikum-services.ru/api/v1/orders",
+          "protocol": "https",
+          "host": [
+            "7f967a57-be22-4bce-b47e-1b484a1bbbf0",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "станции метро",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Фнна\", \"cardId\": 1 }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://b2e1331b-6c4e-40fb-9e33-1423faf6400f.serverhub.praktikum-services.ru/api/v1/stations/search",
+          "protocol": "https",
+          "host": [
+            "b2e1331b-6c4e-40fb-9e33-1423faf6400f",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "stations",
+            "search"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Создать курьера",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"login\": \"ZhuZhu\",\r\n    \"password\": \"1234\",\r\n    \"firstName\": \"Anna\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/courier",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "courier"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Логин курьера",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"login\": \"ZhuZhu\",\r\n    \"password\": \"1234\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/courier/login",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "courier",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "создание заказа",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Anna\",\r\n    \"lastName\": \"Uchiha\",\r\n    \"address\": \"Konoha, 142 apt.\",\r\n    \"metroStation\": 4,\r\n    \"phone\": \"+7 800 355 35 35\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2020-06-21\",\r\n    \"comment\": \"Saske, come back to Konoha\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/orders\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "создание еще заказа",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Naruto\",\r\n    \"lastName\": \"Ванчина\",\r\n    \"address\": \"Konoha, 142 apt.\",\r\n    \"metroStation\": 4,\r\n    \"phone\": \"+7 800 355 35 35\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2020-06-06\",\r\n    \"comment\": \"Saske, come back to Konoha\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/orders\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "создание заказа который надо отменить",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Naruto\",\r\n    \"lastName\": \"Ванчина\",\r\n    \"address\": \"Покровка, 38.\",\r\n    \"metroStation\": 4,\r\n    \"phone\": \"+7 800 355 35 35\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2020-06-22\",\r\n    \"comment\": \"Saske, come back to Konoha\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/orders\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Отмена заказа",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/orders/cancel?track=833237\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders",
+            "cancel"
+          ],
+          "query": [
+            {
+              "key": "track",
+              "value": "833237\n"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Еще заказ",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Naruto\",\r\n    \"lastName\": \"Ванчина\",\r\n    \"address\": \"Мира, 9А.\",\r\n    \"metroStation\": 4,\r\n    \"phone\": \"+7 800 355 35 35\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2020-06-23\",\r\n    \"comment\": \"Saske, come back to Konoha\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/orders\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Создание еще одного курьера",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"login\": \"Myau\",\r\n    \"password\": \"4321\",\r\n    \"firstName\": \"Anna\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/courier\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "courier\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Создать еще заказ",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Naruto\",\r\n    \"lastName\": \"Ванчина\",\r\n    \"address\": \"Приморская, 46-9.\",\r\n    \"metroStation\": 4,\r\n    \"phone\": \"+7 800 355 35 35\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2020-06-28\",\r\n    \"comment\": \"Saske, come back to Konoha\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/orders\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Еще один курьер Milka",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"login\": \"Milka\",\r\n    \"password\": \"1234\",\r\n    \"firstName\": \"Anna\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/courier\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "courier\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Еще один заказ",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Naruto\",\r\n    \"lastName\": \"Прокофьева\",\r\n    \"address\": \"Приморская, 56-7\",\r\n    \"metroStation\": 4,\r\n    \"phone\": \"+7 800 355 35 35\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2020-06-27\",\r\n    \"comment\": \"Saske, come back to Konoha\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/orders\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "еще заказ адмирала ушакова",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Naruto\",\r\n    \"lastName\": \"Прокофьева\",\r\n    \"address\": \"Центральный проезд Хорошёвского Серебряного Бора 2\",\r\n    \"metroStation\": 204,\r\n    \"phone\": \"+7 800 355 35 35\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2020-06-20\",\r\n    \"comment\": \"Saske, come back to Konoha\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/orders\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "заказ Абдурахманджи",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Абдурахмангаджи\",\r\n    \"lastName\": \"Убдурахмангаджи\",\r\n    \"address\": \"Центральный проезд Хорошёвского Серебряного Бора 2\",\r\n    \"metroStation\": 204,\r\n    \"phone\": \"+34916123451\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2020-06-20\",\r\n    \"comment\": \"Привет, Абдурахмангаджи!\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://59ce4e4c-42b8-4442-91c6-9686fd10d599.serverhub.praktikum-services.ru/api/v1/orders\n",
+          "protocol": "https",
+          "host": [
+            "59ce4e4c-42b8-4442-91c6-9686fd10d599",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Получить заказ по его номеру",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Принять заказ другим курьером",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "https://120ef70e-3293-43d9-9e16-b8e0c0b5f439.serverhub.praktikum-services.ru/api/v1/orders/accept/:id?courierId=2",
+          "protocol": "https",
+          "host": [
+            "120ef70e-3293-43d9-9e16-b8e0c0b5f439",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders",
+            "accept",
+            ":id"
+          ],
+          "query": [
+            {
+              "key": "courierId",
+              "value": "2"
+            }
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "8"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Запрос станции по названию",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://120ef70e-3293-43d9-9e16-b8e0c0b5f439.serverhub.praktikum-services.ru/api/v1/stations/search?s=Адмирала Ушакова",
+          "protocol": "https",
+          "host": [
+            "120ef70e-3293-43d9-9e16-b8e0c0b5f439",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "stations",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "s",
+              "value": "Адмирала Ушакова"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Заказ без обязательных полей",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Привет\",\r\n    \"lastName\": \"Медвед\",\r\n    \"address\": \"Останкинская, 7\",\r\n    \"metroStation\": 178,\r\n    \"phone\": \"+7 800 355 35 35\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2020-06-25\",\r\n    \"comment\": \"Привет\"\r\n \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://120ef70e-3293-43d9-9e16-b8e0c0b5f439.serverhub.praktikum-services.ru/api/v1/orders\n",
+          "protocol": "https",
+          "host": [
+            "120ef70e-3293-43d9-9e16-b8e0c0b5f439",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Курьер для ретеста",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"login\": \"Ky\",\r\n    \"password\": \"1234\",\r\n    \"firstName\": \"Anna\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://120ef70e-3293-43d9-9e16-b8e0c0b5f439.serverhub.praktikum-services.ru/api/v1/courier\n",
+          "protocol": "https",
+          "host": [
+            "120ef70e-3293-43d9-9e16-b8e0c0b5f439",
+            "serverhub",
+            "praktikum-services",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "courier\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "заказ для ретеста",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
