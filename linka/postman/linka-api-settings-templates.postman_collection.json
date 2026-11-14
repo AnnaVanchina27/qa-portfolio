@@ -1,0 +1,1934 @@
+{
+  "info": {
+    "_postman_id": "0ae6b9b1-a265-4a1d-ae6e-f5c433652d92",
+    "name": "API: настройки и шаблоны",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST/settings/templates",
+      "item": [
+        {
+          "name": "Очистка всех запросов",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.response.json().forEach(function (t) {\r",
+                  "    pm.sendRequest({\r",
+                  "        url: pm.environment.get(\"url\") + \"/settings/templates/\" + t.id,\r",
+                  "        method: \"DELETE\",\r",
+                  "        header: { Authorization: \"Bearer \" + pm.environment.get(\"token\") }\r",
+                  "    });\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона с несколькими цветами.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"12\",\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона с названием из одного символа.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"А\",\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}"
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание с кириллицей, цифрами и пробелами в названии",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Шаблон занятий 20261\",\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона со специальными символами в названии.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Тест №2: шаблон/настройки\",\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Проверка отображения созданного шаблона в списке",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона без поля name.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона без поля body.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"А1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона с пустым телом",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \r\n  }\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона для проверки дубля",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});\r",
+                  "pm.environment.set(\"tpl_id\", pm.response.json().id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"цветной шаблон1\",\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона с повторяющимся именем",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 409\", function () {\r",
+                  "    pm.response.to.have.status(409);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"цветной шаблон1\",\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона с неверным типом name.",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": 123,\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона с неверным типом body.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\"name\":\"Тестовый шаблон\",\"body\":\"текст\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона с неверным типом colors",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Тестовый шаблон\",\"body\":{\"eye_control\":\"допустимое значение\",\"card_activation\":\"допустимое значение\",\"interactivity\":\"допустимое значение\",\"voice\":\"alena\",\"button_direction\":\"допустимое значение\",\"colors\":\"#8DCE6A\",\"border_width\":32}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона с неверным типом border_width.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"цветной шаблон12\",\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": \"32\"\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона с невалидным JSON.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Тестовый шаблон\" \"body\":{}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона с токеном без префикса Bearer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "asd123",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"привет\",\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Создание шаблона без авторизации.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"цветной шаблон13\",\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "GET/settings/templates",
+      "item": [
+        {
+          "name": "Запрос списка шаблонов",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PUT /settings",
+      "item": [
+        {
+          "name": "Сохранение настроек со всеми полями",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eye_control\": \"string\",\r\n  \"card_activation\": \"string\",\r\n  \"interactivity\": \"string\",\r\n  \"voice\":\"alena\",\r\n  \"button_direction\": \"string\",\r\n  \"colors\": {\r\n    \"additionalProp1\": \"#0cd0b2\",\r\n    \"additionalProp2\": \"#0cd0b2\",\r\n    \"additionalProp3\": \"#0cd0b2\"\r\n  },\r\n  \"border_width\": 32\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "запрос голсоов",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/tts/voices",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "tts",
+                "voices"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Сохранение нескольких цветов",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eye_control\": \"string\",\r\n  \"card_activation\": \"string\",\r\n  \"interactivity\": \"string\",\r\n  \"voice\":\"alena\",\r\n  \"button_direction\": \"string\",\r\n  \"colors\": {\"primary\":\"#8DCE6A\",\"secondary\":\"#FFFFFF\",\"background\":\"#000000\"},\r\n  \"border_width\": 32\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Полная замена ранее сохранённых настроек",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eye_control\": \"string\",\r\n  \"card_activation\": \"string\",\r\n  \"interactivity\": \"море\",\r\n  \"voice\":\"filipp\",\r\n  \"button_direction\": \"string\",\r\n  \"colors\": {\"primary\":\"#FFFFFF\"},\r\n  \"border_width\": 32\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Сохранение с неверным  border_width-строка.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eye_control\": \"string\",\r\n  \"card_activation\": \"string\",\r\n  \"interactivity\": \"string\",\r\n  \"voice\": \"alena\",\r\n  \"button_direction\": \"string\",\r\n  \"colors\": {\r\n    \"primary\": \"#0cd0b2\"\r\n  },\r\n  \"border_width\": 32,\r\n  \"unknown_setting\": \"test\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Сохранение с неверным  border_width-строка.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eye_control\": \"string\",\r\n  \"card_activation\": \"string\",\r\n  \"interactivity\": \"море\",\r\n  \"voice\":\"filipp\",\r\n  \"button_direction\": \"string\",\r\n  \"colors\": {\"primary\":\"#FFFFFF\"},\r\n  \"border_width\": \"32\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Сохранение с неверным типом значения в colors.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eye_control\": \"string\",\r\n  \"card_activation\": \"string\",\r\n  \"interactivity\": \"string\",\r\n  \"voice\":\"alena\",\r\n  \"button_direction\": \"string\",\r\n  \"colors\":{\"primary\":123},\r\n  \"border_width\": {}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Сохранение с неверным типом строковой настройки.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eye_control\": 123,\r\n  \"card_activation\": \"string\",\r\n  \"interactivity\": \"string\",\r\n  \"voice\":\"alena\",\r\n  \"button_direction\": \"string\",\r\n  \"colors\":{\"primary\":123},\r\n  \"border_width\": 32\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Сохранение с неверным  border_width — объект.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eye_control\": \"string\",\r\n  \"card_activation\": \"string\",\r\n  \"interactivity\": \"string\",\r\n  \"voice\":\"alena\",\r\n  \"button_direction\": \"string\",\r\n  \"colors\": {\r\n    \"additionalProp1\": \"#0cd0b2\",\r\n    \"additionalProp2\": \"#0cd0b2\",\r\n    \"additionalProp3\": \"#0cd0b2\"\r\n  },\r\n  \"border_width\": {}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Сохранение с невалидным JSON.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\"eye_control\":\"допустимое значение\" \"border_width\":32}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Сохранение без авторизации.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eye_control\": \"string\",\r\n  \"card_activation\": \"string\",\r\n  \"interactivity\": \"string\",\r\n  \"voice\":\"alena\",\r\n  \"button_direction\": \"string\",\r\n  \"colors\": {\r\n    \"additionalProp1\": \"#0cd0b2\",\r\n    \"additionalProp2\": \"#0cd0b2\",\r\n    \"additionalProp3\": \"#0cd0b2\"\r\n  },\r\n  \"border_width\": 32\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Сохранение с невалидным токеном.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "asd123",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eye_control\": \"string\",\r\n  \"card_activation\": \"string\",\r\n  \"interactivity\": \"string\",\r\n  \"voice\":\"alena\",\r\n  \"button_direction\": \"string\",\r\n  \"colors\": {\r\n    \"additionalProp1\": \"#0cd0b2\",\r\n    \"additionalProp2\": \"#0cd0b2\",\r\n    \"additionalProp3\": \"#0cd0b2\"\r\n  },\r\n  \"border_width\": 32\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "DELETE settings/templates",
+      "item": [
+        {
+          "name": "Создание шаблона с валидными данными.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});\r",
+                  "\r",
+                  "const created = pm.response.json();\r",
+                  "console.log(\"Создан шаблон:\", JSON.stringify(created));\r",
+                  "\r",
+                  "pm.test(\"В ответе есть id\", function () {\r",
+                  "    pm.expect(created.id).to.be.a(\"string\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.environment.set(\"tpl_id\", created.id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "pm.environment.unset(\"tpl_id\");"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"string1\",\r\n  \"body\": {\r\n    \"eye_control\": \"string\",\r\n    \"card_activation\": \"string\",\r\n    \"interactivity\": \"string\",\r\n    \"voice\": \"alena\",\r\n    \"button_direction\": \"string\",\r\n    \"colors\": {\r\n      \"additionalProp1\": \"#6Cf720\",\r\n      \"additionalProp2\": \"#6Cf720\",\r\n      \"additionalProp3\": \"#6Cf720\"\r\n    },\r\n    \"border_width\": 32\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Шаблон появился в списке",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+                  "pm.test(\"Шаблон есть в списке\", () => {\r",
+                  "  const ids = pm.response.json().map(t => t.id);\r",
+                  "  pm.expect(ids).to.include(pm.environment.get(\"tpl_id\"));\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Удаление существующего шаблона.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {\r",
+                  "    pm.response.to.have.status(204);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/settings/templates/{{tpl_id}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates",
+                "{{tpl_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "проверить удаленный шаблон",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Шаблон удалён из списка\", () => {\r",
+                  "  const ids = pm.response.json().map(t => t.id);\r",
+                  "  pm.expect(ids).to.not.include(pm.environment.get(\"tpl_id\"));\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/settings/templates",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Удаление с невалидным идентификатором.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400 \", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/settings/templates/124",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates",
+                "124"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Удаление несуществующего шаблона",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/settings/templates/9a2a32f6-cca8-4af9-a2ac-fa0af6f05241",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates",
+                "9a2a32f6-cca8-4af9-a2ac-fa0af6f05241"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Повторное удаление шаблона.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/settings/templates/{{tpl_id}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates",
+                "{{tpl_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Удаление без авторизации",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/settings/templates/7378e4c8-8b8e-4ae4-b0a3-be408dd78f9e",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "settings",
+                "templates",
+                "7378e4c8-8b8e-4ae4-b0a3-be408dd78f9e"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
